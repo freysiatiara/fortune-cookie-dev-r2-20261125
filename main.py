@@ -14,6 +14,8 @@ LINE = "A green build is not a promise; it is a rumor the tests agreed to spread
 def main():
     if not 1 <= len(LINE) <= 120:
         raise SystemExit("LINE must be 1-120 characters")
+    if "\n" in LINE or "\r" in LINE:
+        raise SystemExit("LINE must be a single line")
     out_dir = (
         os.environ.get("ENTRY_OUTPUT")
         or os.environ.get("OUTPUT_DIR")
